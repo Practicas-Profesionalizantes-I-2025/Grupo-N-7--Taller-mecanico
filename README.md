@@ -6,3 +6,5 @@ Mina Facundo, Schopp Yamil, Spengler Josefina.
 [Mockup](https://www.figma.com/design/Y7N6LmlW8L3gia8yQ9BMxc/practica-profesionalizante---taller-mecanico-team-library?node-id=3323-4&t=J48fxzTsugt5bw4q-1)
 
 [Jira](https://tallermecanico.atlassian.net/jira/software/projects/SCRUM/boards/1)
+
+[Diagrama Clases]([https://tallermecanico.atlassian.net/jira/software/projects/SCRUM/boards/1](https://lucid.app/lucidchart/bee89340-fee9-4caf-ba74-ba7afd9c5bc7/edit?viewport_loc=-3241%2C-1440%2C6221%2C2932%2C0_0&invitationId=inv_efe9eae9-58ee-4184-a024-45d3409d61cd))
