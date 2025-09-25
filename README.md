@@ -8,3 +8,6 @@ Mina Facundo, Schopp Yamil, Spengler Josefina.
 [Jira](https://tallermecanico.atlassian.net/jira/software/projects/SCRUM/boards/1)
 
 [Diagrama Clases](https://lucid.app/lucidchart/bee89340-fee9-4caf-ba74-ba7afd9c5bc7/edit?viewport_loc=-3241%2C-1440%2C6221%2C2932%2C0_0&invitationId=inv_efe9eae9-58ee-4184-a024-45d3409d61cd)
+
+[Diagrama Casos de uso](https://docs.google.com/document/d/1qq6iwsXYX075ALMOYkurSFfvd_pjU8PgZ_S0Ka53wmI/edit?usp=sharing)
+
