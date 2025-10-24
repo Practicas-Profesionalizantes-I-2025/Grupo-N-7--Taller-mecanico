@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -16,6 +11,7 @@ namespace ClasesTallerMecanico.Models
         [MaxLength(100)]
         public string Categoria { get; set; }
 
+        [Required]
         public bool Activo { get; set; } = true;
 
         public ICollection<Trabajo> Trabajos { get; set; }

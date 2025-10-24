@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -33,17 +28,21 @@ namespace ClasesTallerMecanico.Models
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal TotalFactura { get; set; }
 
         // --- Denormalización (Reportes Financieros) ---
+        [MaxLength(100)]
         public string NombreCliente { get; set; }
+        [MaxLength(15)]
         public string CuilCuitCliente { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal CostoTotalServicio { get; set; }
+
+        public ICollection<DetalleFacturaVenta> Detalles { get; set; }
     }
 
 }

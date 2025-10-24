@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -19,6 +14,7 @@ namespace ClasesTallerMecanico.Models
         public FacturaVenta FacturaVenta { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string TipoItem { get; set; }
 
         [ForeignKey("TrabajoPorTurno")]
@@ -30,29 +26,31 @@ namespace ClasesTallerMecanico.Models
         public InsumoPorTrabajo? InsumoPorTrabajo { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string DescripcionItem { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0.01, double.MaxValue)]
+        [Range(0.01, (double)decimal.MaxValue)]
         public decimal Cantidad { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioUnitario { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal TotalDetalle { get; set; }
 
-        // --- Denormalización (Preservación Histórica) ---
+        // --- Denormalización ---
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal CostoUnitarioInsumoHistorico { get; set; }
 
+        [MaxLength(100)]
         public string? NombreTrabajoPorTurno { get; set; }
     }
 }

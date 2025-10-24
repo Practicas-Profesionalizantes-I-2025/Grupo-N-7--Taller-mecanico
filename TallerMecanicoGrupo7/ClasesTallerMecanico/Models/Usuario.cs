@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
-    [Table("Usuario")] 
+    [Table("Usuario")]
     public class Usuario : Persona
     {
 
@@ -25,7 +20,10 @@ namespace ClasesTallerMecanico.Models
 
         [Required]
         [MaxLength(256)]
-        public string ContraseñaHash { get; set; } // Almacena el hash, NO el texto plano.
+        public string ContraseñaHash { get; set; }
+
+        public ICollection<SesionCaja> SesionesCaja { get; set; }
+        public ICollection<TrabajoPorTurno> TrabajosRealizados { get; set; }
 
     }
 }

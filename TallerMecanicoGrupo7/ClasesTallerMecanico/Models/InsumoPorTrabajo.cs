@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -25,16 +20,20 @@ namespace ClasesTallerMecanico.Models
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal CostoInsumo { get; set; }
 
         [Required]
-        [Range(1, int.MaxValue)]
+        [Range(1, int.MaxValue)] // CHECK (> 0)
         public int Cantidad { get; set; }
 
         // --- Denormalización (Preservación Histórica) ---
+        [MaxLength(100)]
         public string NombreInsumo { get; set; }
+        [MaxLength(500)]
         public string? DescripcionInsumo { get; set; }
+
+        public ICollection<DetalleFacturaVenta> DetallesVenta { get; set; }
     }
 
 }

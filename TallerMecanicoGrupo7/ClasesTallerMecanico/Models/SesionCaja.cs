@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -23,6 +18,9 @@ namespace ClasesTallerMecanico.Models
 
         [Required]
         public DateTime FechaFin { get; set; }
+
+        public ICollection<FacturaCompra> FacturasCompra { get; set; }
+        public ICollection<FacturaVenta> FacturasVenta { get; set; }
     }
 
 }

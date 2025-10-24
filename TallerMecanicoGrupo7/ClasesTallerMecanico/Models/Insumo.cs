@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -14,11 +9,14 @@ namespace ClasesTallerMecanico.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string Nombre { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Marca { get; set; }
 
+        [MaxLength(500)]
         public string? Descripcion { get; set; }
 
         [Required]
@@ -32,18 +30,23 @@ namespace ClasesTallerMecanico.Models
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioCompra { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, double.MaxValue)]
+        [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioVenta { get; set; }
 
+        [Required]
         public bool Activo { get; set; } = true;
 
-        // --- Denormalización ---
+        // Denormalización
+        [MaxLength(100)]
         public string NombreProveedor { get; set; }
+
+        public ICollection<InsumoPorTrabajo> InsumosPorTrabajo { get; set; }
+        public ICollection<DetalleFacturaCompra> DetallesCompra { get; set; }
     }
 
 }

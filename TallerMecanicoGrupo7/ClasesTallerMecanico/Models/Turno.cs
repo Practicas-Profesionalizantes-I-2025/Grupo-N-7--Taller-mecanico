@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -26,6 +21,7 @@ namespace ClasesTallerMecanico.Models
         [Required]
         public DateTime Fecha { get; set; }
 
+        [MaxLength(200)]
         public string? DomicilioTrabajo { get; set; }
 
         [ForeignKey("Localidad")]
@@ -33,17 +29,22 @@ namespace ClasesTallerMecanico.Models
         public Localidad? Localidad { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Estado { get; set; }
 
+        [MaxLength(500)]
         public string? Descripcion { get; set; }
 
         // --- Denormalización ---
+        [MaxLength(100)]
         public string NombreCliente { get; set; }
+        [MaxLength(100)]
         public string ApellidoCliente { get; set; }
+        [MaxLength(10)]
         public string PatenteMaquina { get; set; }
+        [MaxLength(100)]
         public string? NombreLocalidad { get; set; }
 
-        // Colecciones de tareas y facturación
         public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; }
         public FacturaVenta FacturaVenta { get; set; }
     }

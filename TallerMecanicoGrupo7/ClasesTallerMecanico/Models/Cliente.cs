@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -12,12 +7,16 @@ namespace ClasesTallerMecanico.Models
     public class Cliente : Persona
     {
         [Required]
-        [MaxLength(15)]
+        [StringLength(15, MinimumLength = 11)]
         public string CuilCuit { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string CondFiscal { get; set; }
+
+        public ICollection<Maquina> Maquinas { get; set; }
+        public ICollection<Turno> Turnos { get; set; }
+        public ICollection<FacturaVenta> FacturasVenta { get; set; }
 
     }
 }

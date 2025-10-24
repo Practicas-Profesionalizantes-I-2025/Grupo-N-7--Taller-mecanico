@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClasesTallerMecanico.Models
 {
@@ -35,6 +30,7 @@ namespace ClasesTallerMecanico.Models
         public string? Telefono { get; set; }
 
         [Required]
+        [MaxLength(100)]
         [EmailAddress]
         public string Correo { get; set; }
 
