@@ -16,21 +16,21 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("Insumo")]
         public int IdInsumo { get; set; }
-        public Insumo Insumo { get; set; }
+        public Insumo Insumo { get; set; } //relacion  1 a 1 con insumo
 
-        [Required]
+        [Required(ErrorMessage = "La fecha de compra es requerida.")]
         public DateTime FechaCompra { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La cantidad es requerida.")]
         [Range(1, int.MaxValue)]
         public int Cantidad { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El costo unitario es requerido.")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioUnitario { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El total de la compra es requerida.")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal TotalCompra { get; set; }

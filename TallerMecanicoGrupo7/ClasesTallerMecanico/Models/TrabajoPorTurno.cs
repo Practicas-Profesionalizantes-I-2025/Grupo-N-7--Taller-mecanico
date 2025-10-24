@@ -11,24 +11,24 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("Turno")]
         public int IdTurno { get; set; }
-        public Turno Turno { get; set; }
+        public Turno Turno { get; set; } // Relacion 1 a 1 con Turno
 
         [Required]
         [ForeignKey("Trabajo")]
         public int IdTrabajo { get; set; }
-        public Trabajo Trabajo { get; set; }
+        public Trabajo Trabajo { get; set; } // Relacion 1 a 1 con Trabajo
 
         [Required]
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
-        public Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; } // Relacion 1 a 1 con Usuario (Mecánico)
 
-        [Required]
+        [Required(ErrorMessage = "Las horas son requeridas.")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0.01, (double)decimal.MaxValue)]
         public decimal HsHombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El valor de tarifa es requerido.")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal TarifaHsHombre { get; set; }
@@ -38,13 +38,15 @@ namespace ClasesTallerMecanico.Models
 
         // --- Denormalización ---
         [MaxLength(100)]
-        public string NombreMecanico { get; set; }
-        [MaxLength(100)]
-        public string ApellidoMecanico { get; set; }
-        [MaxLength(100)]
-        public string NombreTrabajo { get; set; }
+        public string NombreMecanico { get; set; } // Nombre del mecánico para evitar joins
 
-        public ICollection<InsumoPorTrabajo> InsumosConsumidos { get; set; }
+        [MaxLength(100)]
+        public string ApellidoMecanico { get; set; } // Apellido del mecánico para evitar joins
+
+        [MaxLength(100)]
+        public string NombreTrabajo { get; set; } // Nombre del trabajo para evitar joins
+
+        public ICollection<InsumoPorTrabajo> InsumosConsumidos { get; set; } // Relacion 1 a muchos con InsumoPorTrabajo
     }
 
 }

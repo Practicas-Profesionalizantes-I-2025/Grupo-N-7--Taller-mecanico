@@ -8,30 +8,29 @@ namespace ClasesTallerMecanico.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El nombre es requerido.")]
         [MaxLength(100)]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La marca es requerida.")]
         [MaxLength(50)]
         public string Marca { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El motor es requerido.")]
         [MaxLength(100)]
         public string Motor { get; set; }
 
-        [Required]
-        [StringLength(10, MinimumLength = 6)]
+        [Required(ErrorMessage = "La patente es requerida.")]
+        [StringLength(10, MinimumLength = 6, ErrorMessage = "La longitud debe ser como minimo de 6 y máximo 10 caracteres")]
         public string Patente { get; set; }
 
         [Required]
         [ForeignKey("Cliente")]
         public int IdCliente { get; set; }
-        public Cliente Cliente { get; set; }
+        public Cliente Cliente { get; set; } // Relación 1 a 1 con Cliente
 
-        [Required]
         public bool Activo { get; set; } = true;
 
-        public ICollection<Turno> Turnos { get; set; }
+        public ICollection<Turno> Turnos { get; set; } // Relación 1 a muchos con Turno
     }
 }

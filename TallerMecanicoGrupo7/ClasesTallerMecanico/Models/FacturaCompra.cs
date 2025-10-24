@@ -11,14 +11,14 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("Proveedor")]
         public int IdProveedor { get; set; }
-        public Proveedor Proveedor { get; set; }
+        public Proveedor Proveedor { get; set; } //relacion  1 a 1 con proveedor
 
         [Required]
         [ForeignKey("SesionCaja")]
         public int IdSesionCaja { get; set; }
-        public SesionCaja SesionCaja { get; set; }
+        public SesionCaja SesionCaja { get; set; } //relacion  1 a 1 con sesion caja
 
-        [Required]
+        [Required(ErrorMessage = "La fecha de factura es requerida.")]
         public DateTime FechaFactura { get; set; }
 
         [Required]
@@ -28,8 +28,8 @@ namespace ClasesTallerMecanico.Models
 
         // Denormalización
         [MaxLength(100)]
-        public string NombreProveedor { get; set; }
+        public string NombreProveedor { get; set; } // Almacena el nombre del proveedor para evitar joins frecuentes
 
-        public ICollection<DetalleFacturaCompra> Detalles { get; set; }
+        public ICollection<DetalleFacturaCompra> Detalles { get; set; } //relacion 1 a muchos con detalle factura compra
     }
 }

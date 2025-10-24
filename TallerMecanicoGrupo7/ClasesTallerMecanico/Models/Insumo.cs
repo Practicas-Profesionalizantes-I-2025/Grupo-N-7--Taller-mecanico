@@ -8,11 +8,11 @@ namespace ClasesTallerMecanico.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El nombre es requerido.")]
         [MaxLength(100)]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La marca es requerida.")]
         [MaxLength(50)]
         public string Marca { get; set; }
 
@@ -22,31 +22,30 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("Proveedor")]
         public int IdProveedor { get; set; }
-        public Proveedor Proveedor { get; set; }
+        public Proveedor Proveedor { get; set; } // Relacion 1 a 1 con Proveedor
 
-        [Required]
+        [Required(ErrorMessage = "El stock es requerido")]
         [Range(0, int.MaxValue)]
         public int Stock { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El precio de compra es requerido")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioCompra { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El precio de venta es requerida")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioVenta { get; set; }
 
-        [Required]
         public bool Activo { get; set; } = true;
 
         // Denormalización
         [MaxLength(100)]
-        public string NombreProveedor { get; set; }
+        public string NombreProveedor { get; set; } // Almacena el nombre del proveedor para evitar joins frecuentes
 
-        public ICollection<InsumoPorTrabajo> InsumosPorTrabajo { get; set; }
-        public ICollection<DetalleFacturaCompra> DetallesCompra { get; set; }
+        public ICollection<InsumoPorTrabajo> InsumosPorTrabajo { get; set; } // Relacion muchos a muchos con InsumoPorTrabajo
+        public ICollection<DetalleFacturaCompra> DetallesCompra { get; set; } // Relacion muchos a muchos con DetalleFacturaCompra
     }
 
 }

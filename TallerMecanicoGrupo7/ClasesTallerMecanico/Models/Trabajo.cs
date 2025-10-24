@@ -11,24 +11,23 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("CategoriaTrabajo")]
         public int IdCategoria { get; set; }
-        public CategoriaTrabajo CategoriaTrabajo { get; set; }
+        public CategoriaTrabajo CategoriaTrabajo { get; set; } // Relacion 1 a 1 con CategoriaTrabajo
 
-        [Required]
+        [Required(ErrorMessage = "El nombre es requerida.")]
         [MaxLength(100)]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La descipción es requerida.")]
         [MaxLength(500)]
         public string Descripcion { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El monto es requerido.")]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal PrecioHsManoObra { get; set; }
 
-        [Required]
         public bool Activo { get; set; } = true;
 
-        public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; }
+        public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; } // Relacion 1 a muchos con TrabajoPorTurno
     }
 }

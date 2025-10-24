@@ -11,14 +11,14 @@ namespace ClasesTallerMecanico.Models
         [Required]
         [ForeignKey("Cliente")]
         public int IdCliente { get; set; }
-        public Cliente Cliente { get; set; }
+        public Cliente Cliente { get; set; } // Relacion 1 a 1 con Cliente
 
         [Required]
         [ForeignKey("Maquina")]
         public int IdMaquina { get; set; }
-        public Maquina Maquina { get; set; }
+        public Maquina Maquina { get; set; } // Relacion 1 a 1 con Maquina
 
-        [Required]
+        [Required(ErrorMessage = "La fecha es requerida.")]
         public DateTime Fecha { get; set; }
 
         [MaxLength(200)]
@@ -26,9 +26,9 @@ namespace ClasesTallerMecanico.Models
 
         [ForeignKey("Localidad")]
         public int? IdLocalidad { get; set; }
-        public Localidad? Localidad { get; set; }
+        public Localidad? Localidad { get; set; } // Relacion 1 a 1 con Localidad
 
-        [Required]
+        [Required(ErrorMessage = "El estado es requerido.")]
         [MaxLength(50)]
         public string Estado { get; set; }
 
@@ -37,15 +37,18 @@ namespace ClasesTallerMecanico.Models
 
         // --- Denormalización ---
         [MaxLength(100)]
-        public string NombreCliente { get; set; }
-        [MaxLength(100)]
-        public string ApellidoCliente { get; set; }
-        [MaxLength(10)]
-        public string PatenteMaquina { get; set; }
-        [MaxLength(100)]
-        public string? NombreLocalidad { get; set; }
+        public string NombreCliente { get; set; } // Nombre del cliente para evitar joins
 
-        public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; }
-        public FacturaVenta FacturaVenta { get; set; }
+        [MaxLength(100)]
+        public string ApellidoCliente { get; set; } // Apellido del cliente para evitar joins
+
+        [MaxLength(10)]
+        public string PatenteMaquina { get; set; } // Patente de la máquina para evitar joins
+
+        [MaxLength(100)]
+        public string? NombreLocalidad { get; set; } // Nombre de la localidad para evitar joins
+
+        public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; } // Relacion 1 a muchos con TrabajoPorTurno
+        public FacturaVenta FacturaVenta { get; set; } // Relacion 1 a 1 con FacturaVenta
     }
 }
