@@ -31,6 +31,11 @@ namespace ClasesTallerMecanico.Models
         [Range(0, (double)decimal.MaxValue)]
         public decimal TotalFactura { get; set; }
 
+        public bool Pagado { get; set; }
+
+        [Required]
+        public DateTime FechaPagoFactura { get; set; }
+
         // --- Denormalización (Reportes Financieros) ---
         [MaxLength(100)]
         public string NombreCliente { get; set; } // Almacena el nombre del cliente para evitar joins frecuentes
