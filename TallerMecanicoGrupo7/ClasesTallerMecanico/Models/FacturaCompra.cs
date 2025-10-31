@@ -28,8 +28,11 @@ namespace ClasesTallerMecanico.Models
 
         public bool Pagado { get; set; }
 
-        [Required]
-        public DateTime FechaPagoFactura { get; set; }
+        public DateTime? FechaPagoFactura { get; set; }
+
+        [ForeignKey("FormaPago")]
+        public int IdFormaPago { get; set; }
+        public FormaPago? FormaPago { get; set; } //relacion  1 a 1 con forma de pago
 
         // Denormalización
         [MaxLength(100)]
