@@ -36,16 +36,6 @@ namespace ClasesTallerMecanico.Models
         [MaxLength(500)]
         public string? Descripcion { get; set; }
 
-        // --- Denormalización ---
-        [MaxLength(100)]
-        public string NombreMecanico { get; set; } // Nombre del mecánico para evitar joins
-
-        [MaxLength(100)]
-        public string ApellidoMecanico { get; set; } // Apellido del mecánico para evitar joins
-
-        [MaxLength(100)]
-        public string NombreTrabajo { get; set; } // Nombre del trabajo para evitar joins
-
         public ICollection<InsumoPorTrabajo> InsumosConsumidos { get; set; } // Relacion 1 a muchos con InsumoPorTrabajo
     }
 

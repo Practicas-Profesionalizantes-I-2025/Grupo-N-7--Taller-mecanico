@@ -43,14 +43,5 @@ namespace ClasesTallerMecanico.Models
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal TotalDetalle { get; set; }
-
-        // --- Denormalización ---
-        [Required]
-        [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, (double)decimal.MaxValue)]
-        public decimal CostoUnitarioInsumoHistorico { get; set; } // Almacena el costo unitario del insumo al momento de la venta para evitar cálculos frecuentes
-
-        [MaxLength(100)]
-        public string? NombreTrabajoPorTurno { get; set; } // Almacena el nombre del trabajo por turno para evitar joins frecuentes
     }
 }

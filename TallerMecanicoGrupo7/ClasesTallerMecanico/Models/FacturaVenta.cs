@@ -39,16 +39,7 @@ namespace ClasesTallerMecanico.Models
         public int IdFormaPago { get; set; }
         public FormaPago? FormaPago { get; set; } //relacion  1 a 1 con forma de pago
 
-        // --- Denormalización (Reportes Financieros) ---
-        [MaxLength(100)]
-        public string NombreCliente { get; set; } // Almacena el nombre del cliente para evitar joins frecuentes
-        [MaxLength(15)]
-        public string CuilCuitCliente { get; set; } // Almacena el cuilCuit del cliente para evitar joins frecuentes
-
-        [Required]
-        [Column(TypeName = "decimal(18, 2)")]
-        [Range(0, (double)decimal.MaxValue)]
-        public decimal CostoTotalServicio { get; set; } // Almacena el costo total de los servicios realizados para evitar cálculos frecuentes
+        // --- Denormalización eliminada ---
 
         //Relación 1 a muchos con DetalleFacturaVenta
         public ICollection<DetalleFacturaVenta> Detalles { get; set; }
