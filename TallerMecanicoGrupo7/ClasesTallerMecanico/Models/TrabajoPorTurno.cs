@@ -37,6 +37,7 @@ namespace ClasesTallerMecanico.Models
         public string? Descripcion { get; set; }
 
         public ICollection<InsumoPorTrabajo> InsumosConsumidos { get; set; } // Relacion 1 a muchos con InsumoPorTrabajo
+        public ICollection<DetalleFacturaVenta> DetallesVenta { get; set; } // Relacion 1 a muchos con DetalleFacturaVenta
     }
 
 }

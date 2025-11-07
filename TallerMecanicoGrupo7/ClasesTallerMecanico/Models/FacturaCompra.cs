@@ -34,10 +34,6 @@ namespace ClasesTallerMecanico.Models
         public int IdFormaPago { get; set; }
         public FormaPago? FormaPago { get; set; } //relacion  1 a 1 con forma de pago
 
-        // Denormalización
-        [MaxLength(100)]
-        public string NombreProveedor { get; set; } // Almacena el nombre del proveedor para evitar joins frecuentes
-
         public ICollection<DetalleFacturaCompra> Detalles { get; set; } //relacion 1 a muchos con detalle factura compra
     }
 }

@@ -39,10 +39,8 @@ namespace ClasesTallerMecanico.Models
         public int IdFormaPago { get; set; }
         public FormaPago? FormaPago { get; set; } //relacion  1 a 1 con forma de pago
 
-        // --- Denormalización eliminada ---
 
-        //Relación 1 a muchos con DetalleFacturaVenta
-        public ICollection<DetalleFacturaVenta> Detalles { get; set; }
+        public ICollection<DetalleFacturaVenta> DetallesFacturaVenta { get; set; } // Relación 1 a muchos con DetalleFacturaVenta
     }
 
 }

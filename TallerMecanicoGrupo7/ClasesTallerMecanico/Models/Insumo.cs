@@ -40,10 +40,6 @@ namespace ClasesTallerMecanico.Models
 
         public bool Activo { get; set; } = true;
 
-        // Denormalización
-        [MaxLength(100)]
-        public string NombreProveedor { get; set; } // Almacena el nombre del proveedor para evitar joins frecuentes
-
         public ICollection<InsumoPorTrabajo> InsumosPorTrabajo { get; set; } // Relacion muchos a muchos con InsumoPorTrabajo
         public ICollection<DetalleFacturaCompra> DetallesCompra { get; set; } // Relacion muchos a muchos con DetalleFacturaCompra
     }

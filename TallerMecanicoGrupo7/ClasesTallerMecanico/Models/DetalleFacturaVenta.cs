@@ -13,10 +13,6 @@ namespace ClasesTallerMecanico.Models
         public int IdFactura { get; set; }
         public FacturaVenta FacturaVenta { get; set; } //relacion  1 a 1 con factura venta
 
-        [Required(ErrorMessage = "El tipo de item es requerido.")]
-        [MaxLength(50)]
-        public string TipoItem { get; set; }
-
         [ForeignKey("TrabajoPorTurno")]
         public int? IdTrabajoPorTurno { get; set; }
         public TrabajoPorTurno? TrabajoPorTurno { get; set; } //relacion  1 a 1 con trabajo por turno
@@ -43,5 +39,10 @@ namespace ClasesTallerMecanico.Models
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, (double)decimal.MaxValue)]
         public decimal TotalDetalle { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        [Range(0, (double)decimal.MaxValue)]
+        public decimal CostoUnitarioInsumoHistorico { get; set; }
     }
 }

@@ -25,12 +25,6 @@ namespace ClasesTallerMecanico.Models
         [Required(ErrorMessage = "La fecha es requerida.")]
         public DateTime Fecha { get; set; }
 
-        [MaxLength(200)]
-        public string? DomicilioTrabajo { get; set; }
-
-        [ForeignKey("Localidad")]
-        public int? IdLocalidad { get; set; }
-        public Localidad? Localidad { get; set; } // Relacion 1 a 1 con Localidad
 
         [ForeignKey("EstadoTurno")]
         public int? IdEstado { get; set; }
@@ -39,7 +33,7 @@ namespace ClasesTallerMecanico.Models
         [MaxLength(500)]
         public string? Descripcion { get; set; }
 
-        public ICollection<TrabajoPorTurno> TrabajosPorTurno { get; set; } // Relacion 1 a muchos con TrabajoPorTurno
+        public DetalleTurno DetalleTurno { get; set; } // Relacion 1 a 1 con DetalleTurno
         public FacturaVenta FacturaVenta { get; set; } // Relacion 1 a 1 con FacturaVenta
     }
 }

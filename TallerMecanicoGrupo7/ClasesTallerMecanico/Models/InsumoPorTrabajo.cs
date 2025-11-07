@@ -27,13 +27,6 @@ namespace ClasesTallerMecanico.Models
         [Range(1, int.MaxValue)] // CHECK (> 0)
         public int Cantidad { get; set; }
 
-        // --- Denormalización (Preservación Histórica) ---
-        [MaxLength(100)]
-        public string NombreInsumo { get; set; } // Almacena el nombre del insumo en el momento del uso
-
-        [MaxLength(500)]
-        public string? DescripcionInsumo { get; set; } // Almacena la descripción del insumo en el momento del uso
-
         public ICollection<DetalleFacturaVenta> DetallesVenta { get; set; } // Relación 1 a muchos con DetalleFacturaVenta
     }
 
